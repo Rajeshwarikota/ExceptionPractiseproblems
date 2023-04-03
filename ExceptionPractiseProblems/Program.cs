@@ -11,6 +11,7 @@ namespace ExceptionPractiseProblems
         static void Main(string[] args)
         {
             Console.WriteLine("....Exception....");
+            PersonCategory.Categories();
             Console.ReadLine();
         }
     }
