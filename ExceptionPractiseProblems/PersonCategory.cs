@@ -6,33 +6,23 @@ using System.Threading.Tasks;
 
 namespace ExceptionPractiseProblems
 {
-    class PersonCategory
+    public class PersonCategory
     {
-        public static void Categories()
+        public static string GetCategory(int age)
         {
-            // Test case ages
-            List<int> ages = new List<int> { 5, 18, 30, 70 };
+                string category;
 
-            try
-            {
-                // Categorize ages using a switch statement
-                List<string> categories = new List<string>();
-                foreach (int age in ages)
+                try
                 {
-                    string category;
-                    if (age < 1)
-                    {
-                        throw new ArgumentException("Age cannot be less than 1.");
-                    }
-                    else if (age <= 14)
+                    if (age >= 1 && age <= 14)
                     {
                         category = "Children";
                     }
-                    else if (age <= 24)
+                    else if (age >= 15 && age <= 24)
                     {
                         category = "Youth";
                     }
-                    else if (age <= 64)
+                    else if (age >= 25 && age <= 64)
                     {
                         category = "Adults";
                     }
@@ -42,22 +32,18 @@ namespace ExceptionPractiseProblems
                     }
                     else
                     {
-                        throw new ArgumentException("Invalid age.");
+                        throw new ArgumentException("Invalid age entered.");
                     }
-                    categories.Add(category);
                 }
-
-                // Print age categories
-                for (int i = 0; i < ages.Count; i++)
+                catch (ArgumentException ex)
                 {
-                    Console.WriteLine($"The person's age is {ages[i]} and  the {categories[i]} category.");
+                    category = "Error: " + ex.Message;
                 }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error: {ex.Message}");
-            }
+                return category;
         }
     }
-
 }
+
+
+    
+

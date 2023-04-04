@@ -1,20 +1,60 @@
+using ExceptionPractiseProblems;
 namespace ExceptionTesting
 {
     [TestClass]
     public class UnitTest1
     {
         [TestMethod]
-        public void TestMethod1()
+        public void TestchildrenCategory()
         {
             // Arrange
-            List<int> ages = new List<int> { 5, 18, 30, 70 };
-            List<string> expectedCategories = new List<string> { "Children", "Youth", "Adults", "Seniors" };
+            int age = 14;
+            string expectedCategory = "Children";
 
             // Act
-            List<string> actualCategories = PersonsCategory.Categories(ages);
+            string actualCategory = PersonCategory.GetCategory(age);
 
             // Assert
-            CollectionAssert.AreEqual(expectedCategories, actualCategories);
+            Assert.AreEqual(expectedCategory, actualCategory);
+        }
+        [TestMethod]
+        public void TestAdultCategory()
+        {
+            // Arrange
+            int age = 40;
+            string expectedCategory = "Adults";
+
+            // Act
+            string actualCategory = PersonCategory.GetCategory(age);
+
+            // Assert
+            Assert.AreEqual(expectedCategory, actualCategory);
+        }
+        [TestMethod]
+        public void TestyouthCategory()
+        {
+            // Arrange
+            int age = 20;
+            string expectedCategory = "Youth";
+
+            // Act
+            string actualCategory = PersonCategory.GetCategory(age);
+
+            // Assert
+            Assert.AreEqual(expectedCategory, actualCategory);
+        }
+        [TestMethod]
+        public void TestseniorCategory()
+        {
+            // Arrange
+            int age = 70;
+            string expectedCategory = "Seniors";
+
+            // Act
+            string actualCategory = PersonCategory.GetCategory(age);
+
+            // Assert
+            Assert.AreEqual(expectedCategory, actualCategory);
         }
     }
 }
