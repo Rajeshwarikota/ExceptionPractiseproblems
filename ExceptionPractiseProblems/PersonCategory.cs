@@ -8,42 +8,56 @@ namespace ExceptionPractiseProblems
 {
     public class PersonCategory
     {
-        public static string GetCategory(int age)
+        public static string GetCategory(int? age)
         {
-                string category;
+            string category;
 
-                try
+            try
+            {
+                if (age == null)
                 {
-                    if (age >= 1 && age <= 14)
-                    {
-                        category = "Children";
-                    }
-                    else if (age >= 15 && age <= 24)
-                    {
-                        category = "Youth";
-                    }
-                    else if (age >= 25 && age <= 64)
-                    {
-                        category = "Adults";
-                    }
-                    else if (age >= 65)
-                    {
-                        category = "Seniors";
-                    }
-                    else
-                    {
-                        throw new ArgumentException("Invalid age entered.");
-                    }
+                    throw new ArgumentNullException(nameof(age), "Age cannot be null.");
                 }
-                catch (ArgumentException ex)
+                else if (age < 1)
                 {
-                    category = "Error: " + ex.Message;
+                    throw new ArgumentException("Age cannot be less than 1.");
                 }
-                return category;
+                else if (age <= 14)
+                {
+                    category = "Children";
+                }
+                else if (age <= 24)
+                {
+                    category = "Youth";
+                }
+                else if (age <= 64)
+                {
+                    category = "Adults";
+                }
+                else if (age >= 65)
+                {
+                    category = "Seniors";
+                }
+                else
+                {
+                    throw new ArgumentException("Invalid age entered.");
+                }
+            }
+            catch (ArgumentNullException ex)
+            {
+                category = "Error: " + ex.Message;
+            }
+            catch (ArgumentException ex)
+            {
+                category = "Error: " + ex.Message;
+            }
+            return category;
         }
     }
 }
 
 
-    
+
+
+
 

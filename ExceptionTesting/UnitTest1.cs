@@ -5,6 +5,7 @@ namespace ExceptionTesting
     public class UnitTest1
     {
         [TestMethod]
+        // testing children category 
         public void TestchildrenCategory()
         {
             // Arrange
@@ -18,6 +19,7 @@ namespace ExceptionTesting
             Assert.AreEqual(expectedCategory, actualCategory);
         }
         [TestMethod]
+        // testing Adults category 
         public void TestAdultCategory()
         {
             // Arrange
@@ -31,6 +33,7 @@ namespace ExceptionTesting
             Assert.AreEqual(expectedCategory, actualCategory);
         }
         [TestMethod]
+        // testing youth category 
         public void TestyouthCategory()
         {
             // Arrange
@@ -44,6 +47,7 @@ namespace ExceptionTesting
             Assert.AreEqual(expectedCategory, actualCategory);
         }
         [TestMethod]
+        // testing seniors category 
         public void TestseniorCategory()
         {
             // Arrange
@@ -56,5 +60,20 @@ namespace ExceptionTesting
             // Assert
             Assert.AreEqual(expectedCategory, actualCategory);
         }
+        [TestMethod]
+        //Testing Null category
+        public void Test_GetCategory_WithNullAge_ReturnsError()
+        {
+            // Arrange
+            int? age = null;
+
+            // Act
+            string result = PersonCategory.GetCategory(age);
+
+            // Assert
+            Assert.IsTrue(result.StartsWith("Error:"), $"Expected: Error:, Actual: {result}");
+
+        }
+
     }
 }

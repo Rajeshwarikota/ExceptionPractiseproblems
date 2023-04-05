@@ -11,7 +11,7 @@ namespace ExceptionPractiseProblems
         static void Main(string[] args)
         {
             Console.WriteLine("....Exception....");
-            Console.WriteLine("\n1:Age Determination\n22:default");
+            Console.WriteLine("\n1:Age Determination\n2:Null\n22:default");
             int option = Convert.ToInt32(Console.ReadLine());
 
             switch (option)
@@ -21,11 +21,17 @@ namespace ExceptionPractiseProblems
                     string category = PersonCategory.GetCategory(age);
                     Console.WriteLine($"The person's age is {age} and belongs to {category} category.");
                     break;
-                    default:
+                case 2:
+                    int? value = null;
+                    string cat = PersonCategory.GetCategory(value);
+                    Console.WriteLine($"The person's age is {value} and the category is {cat}.");
+                    break;
+                default:
                     Console.WriteLine("choose the above option");
                     break;
             }
             Console.ReadLine();
+
         }
     }
 }
