@@ -5,45 +5,71 @@ namespace ExceptionTesting
     public class UnitTest1
     {
         [TestMethod]
-        public void TestChildrenCategory()
+        // testing children category 
+        public void TestchildrenCategory()
         {
-            int age = 7;
+            // Arrange
+            int age = 14;
             string expectedCategory = "Children";
+
+            // Act
             string actualCategory = PersonCategory.GetCategory(age);
+
+            // Assert
             Assert.AreEqual(expectedCategory, actualCategory);
         }
         [TestMethod]
-        public void TestYouthCategory()
+        // testing Adults category 
+        public void TestAdultCategory()
         {
-            int age = 19;
-            string expectedCategory = "Youth";
-            string actualCategory = PersonCategory.GetCategory(age);
-            Assert.AreEqual(expectedCategory, actualCategory);
-        }
-        [TestMethod]
-        public void TestAdultsCategory()
-        {
-            int age = 35;
+            // Arrange
+            int age = 40;
             string expectedCategory = "Adults";
+
+            // Act
             string actualCategory = PersonCategory.GetCategory(age);
+
+            // Assert
             Assert.AreEqual(expectedCategory, actualCategory);
         }
         [TestMethod]
-        public void TestSeniorsCategory()
+        // testing youth category 
+        public void TestyouthCategory()
         {
-            int age = 75;
+            // Arrange
+            int age = 20;
+            string expectedCategory = "Youth";
+
+            // Act
+            string actualCategory = PersonCategory.GetCategory(age);
+
+            // Assert
+            Assert.AreEqual(expectedCategory, actualCategory);
+        }
+        [TestMethod]
+        // testing seniors category 
+        public void TestseniorCategory()
+        {
+            // Arrange
+            int age = 70;
             string expectedCategory = "Seniors";
+
+            // Act
             string actualCategory = PersonCategory.GetCategory(age);
+
+            // Assert
             Assert.AreEqual(expectedCategory, actualCategory);
         }
         [TestMethod]
-        public void TestInvalidAge()
+        //Testing Null category
+        public void Test_GetCategory_WithNullAge_ReturnsInvalid_Age()
         {
-            int age = -5;
-            string expectedCategory = "Invalid age";
-            string actualCategory = PersonCategory.GetCategory(age);
-            Assert.AreEqual(expectedCategory, actualCategory);
+            // Arrange
+            int? age = null;
+            // Act
+            string result = PersonCategory.GetCategory(age);
+            // Assert
+            Assert.AreEqual(null, result, $"Expected: null, Actual: {result}");
         }
     }
 }
-

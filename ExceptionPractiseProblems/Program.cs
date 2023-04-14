@@ -19,14 +19,16 @@ namespace ExceptionPractiseProblems
                 case 1:
                     int age = 30;
                     string category = PersonCategory.GetCategory(age);
-                    Console.WriteLine($"The person's age is {age} and belongs to {category} category.");
+                    Console.WriteLine($"The person's age is {age} and belongs to {category} category");
+                    break;
+                case 2:
+                    Console.WriteLine(PersonCategory.GetCategory(null));
                     break;
                 default:
                     Console.WriteLine("choose the above option");
                     break;
             }
             Console.ReadLine();
-
         }
     }
 }
