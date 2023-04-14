@@ -5,7 +5,6 @@ namespace ExceptionTesting
     public class UnitTest1
     {
         [TestMethod]
-
         public void TestChildrenCategory()
         {
             int age = 7;
